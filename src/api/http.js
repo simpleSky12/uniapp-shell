@@ -17,11 +17,6 @@ class Http {
   static async getDetail(params) {
     return await request.get('/api/std-grade/detail', params)
   }
-
-  // 获取学年列表
-  static async getSchoolYears(params) {
-    return await request.get('/api/std-grade/schoolYears', params)
-  }
 }
 
 export {
