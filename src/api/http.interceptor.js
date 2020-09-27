@@ -34,18 +34,19 @@ const install = (Vue, vm) => {
   // 响应拦截，每次请求返回的数据结果都会执行本方法
   Vue.prototype.$u.http.interceptor.response = response => {
     const {statusCode, data: {code, msg, data} = {}} = response
-    // 403 权限不足
-    if (statusCode === 403) {
-      vm.$u.toast(msg)
-      return false
-    }
     // 401 表示 token 不正确 或者 过期，跳转到 登录页面
     if (statusCode === 401) {
       vm.$u.toast(msg)
       vm.$emit(TOKEN_INVALID_EVENT)
       return false
     }
-    if (code === 200) return data
+    // 对于 200 直接返回数据，其他状态一律返回错误的msg 信息
+    if (code === 200) {
+      return data
+    } else {
+      vm.$u.toast(msg)
+      return false
+    }
   }
 }
 

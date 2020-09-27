@@ -1,0 +1,66 @@
+// 元素背景图片的复用
+@mixin bgImg($w:0,$h:0,$img:'',$size:contain){
+  display: inline-block;
+  width: $w;
+  height: $h;
+  background: url($img) no-repeat center;
+  background-size: $size;
+}
+
+// flex 布局复用
+@mixin flex($d:row,$jc:space-between,$ai:center){
+  display: flex;
+  flex-direction: $d;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin position($pos:absolute,$top:0,$left:0,$w:100%,$h:100%){
+  position: $pos;
+  top:$top;
+  left: $left;
+  width: $w;
+  height: $h;
+}
+
+@mixin positionR($pos:absolute,$top:0,$right:0,$w:100%,$h:100%){
+  position: $pos;
+  top:$top;
+  right: $right;
+  width: $w;
+  height: $h;
+}
+
+@mixin colCenter($h:40px){
+  height: $h;
+  line-height: $h;
+}
+// 动画持续时间
+@mixin delay($time: 0.5s){
+  transition: all $time;
+}
+
+// 按钮大小布局样式
+@mixin btnSize($w: 200rpx,$h: 66rpx,$radius: 4rpx,$fontSize: 28rpx){
+  width:$w;
+  height:$h;
+  border-radius:$radius;
+  font-size: $fontSize;
+  line-height: $h;
+  text-align: center;
+}
+// 按钮颜色样式
+@mixin btnColor($color: #6F737A, $bgc: #F1F3F6){
+  color: $color;
+  background: $bgc;
+}
+
+// 多少行 省略显示
+@mixin textHidden($lineNum: 1){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lineNum;
+  -webkit-box-orient: vertical;
+}
+

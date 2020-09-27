@@ -1,0 +1,68 @@
+@import "reset.scss";
+@import "mixin.scss";
+@import "config.scss";
+
+// 公共机制的样式，在项目中可以通用
+
+a{
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+input{
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.fl{
+  float: left;
+}
+.fr {
+  float: right;
+}
+
+.clearfix{
+  &:before,&:after{
+    content: ' ';
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+.rotate{
+  transform: rotate(180deg);
+}
+
+.hairline{
+  position: relative;
+  border-width: 0rpx !important;
+  padding: 0.5rpx;
+  z-index: 0;
+  &:after{
+    content: "";
+    border-style: inherit;
+    border-color: inherit;
+    border-radius: inherit;
+    box-sizing: border-box !important;
+    position: absolute;
+    border-width: 2rpx !important;
+    left: 0;
+    top: 0;
+    width: 200% !important;
+    height: 200% !important;
+    transform-origin: 0 0;
+    transform: scale(0.5) !important;
+    z-index: -1;
+  }
+}
+
+page, body{
+  font-size: $font-size-base;
+  color: $text-color;
+  background-color: #fff;
+}

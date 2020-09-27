@@ -1,10 +1,10 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"easycom": {
+		"^u-(.*)": "~/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [
 		{
-            "path" : "pages/personalScore/personalScore",
-            "style" : {
-				"navigationBarTitleText": "我的成绩"
-			}
+            "path" : "pages/index/index"
         }
     ],
 	"globalStyle": {
